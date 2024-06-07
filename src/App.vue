@@ -1,9 +1,13 @@
+<script setup lang="ts">
+import FooterElem from './components/Layout/FooterElem.vue';
+import NavigationBar from './components/Layout/NavigationBar.vue';
+
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <navigation-bar />
   <router-view/>
+  <footer-elem />
 </template>
 
 <style lang="scss">
@@ -13,6 +17,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  @include flex(column);
+  height: 100%;
 }
 
 nav {
