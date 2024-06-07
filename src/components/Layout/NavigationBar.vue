@@ -49,7 +49,7 @@
 
       &__link-status-block {
         display: none;
-        @include desktop() {
+        @include tablet() {
           display: flex;
         }
       }
