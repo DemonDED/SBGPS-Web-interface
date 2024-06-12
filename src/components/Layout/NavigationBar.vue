@@ -14,13 +14,13 @@
         </div>
 
         <div class="header__content__navigation__list">
-          <RouterLink to="/">
+          <RouterLink class="header__content__navigation__list__item" to="/">
             Мониторинг
           </RouterLink>
-          <RouterLink to="/additional-information">
+          <RouterLink class="header__content__navigation__list__item" to="/additional-information">
             Дополнительная информация
           </RouterLink>
-          <RouterLink to="/settings">
+          <RouterLink class="header__content__navigation__list__item" to="/settings">
             Настройки
           </RouterLink>
         </div>
@@ -51,6 +51,26 @@
         display: none;
         @include tablet() {
           display: flex;
+        }
+      }
+      
+      &__navigation {
+        width: 70%;
+        &__list {
+          width: 100%;
+          @include flex();
+          @include flex-utils(center, center);
+          gap: 2rem;
+          &__item {
+            padding: 1.6rem 2rem;
+            text-decoration: none;
+            color: $orange;
+            background-color: $off-gray;
+            border-radius: 1.6rem;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 23rem;
+          }
         }
       }
     }
