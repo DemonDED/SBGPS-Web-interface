@@ -198,7 +198,6 @@ app.post('/auth', (request, response) => {
   }
 })
 app.post('/settings', (request, response) => {
-  console.log(request.body);
 
   for (let i = 0; i < monitoring_lan.length; i++) {
     if (monitoring_lan[i].name_port == JSON.parse(request.body.data[0][i]).name) {
@@ -210,6 +209,7 @@ app.post('/settings', (request, response) => {
       monitoring_wlan[i].ip_addr = JSON.parse(request.body.data[1][i]).ip_addr;
     }
   }
+  response.send('ok!');
 })
 
 app.ws('/echo', function(ws, req) {
