@@ -1,10 +1,15 @@
 <script lang="ts" setup>
   import router from '@/router';
-  import { onMounted, ref,computed } from 'vue';
+  import { onMounted, ref,computed, onUpdated, onBeforeMount, onBeforeUpdate } from 'vue';
+import { onBeforeRouteUpdate } from 'vue-router';
 
   let ping = ref('');
-  let cookieStatus = ref(document.cookie);
+  let cookieStatus = ref('');
+  cookieStatus.value = document.cookie;
 
+  onBeforeRouteUpdate(() => {
+    cookieStatus.value = document.cookie;
+  })
 
   function WebSocketPing() {
       const link = new WebSocket('ws://localhost:3000/echo');
@@ -32,7 +37,11 @@
     }
 
   onMounted(() => {
+    cookieStatus.value = document.cookie;
     WebSocketPing();
+  })
+  onBeforeUpdate(() => {
+    cookieStatus.value = document.cookie;
   })
 </script>
 
@@ -81,5 +90,17 @@
   }
   .red {
     background: $red;
+  }
+
+  button {
+    cursor: pointer;
+    text-decoration: none;
+    color: $orange;
+    background-color: $off-gray;
+    border-radius: 1.6rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 23rem;
+    border: none;
   }
 </style>
