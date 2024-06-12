@@ -25,5 +25,35 @@
 </template>
 
 <style lang="scss" scoped>
-  
+  .access-point {
+    width: 100%;
+    max-width: 72.8rem;
+    @include flex(column);
+    @include flex-utils();
+    gap: 2rem;
+    color: $orange;
+    background: $gray;
+    border-radius: 1.6rem;
+    box-shadow: 0 5px 10px 0 rgba($color: #000000, $alpha: 0.3);
+
+    &__title {
+      padding: 0 1.6rem;
+      @include flex();
+      @include flex-utils(flex-start, center);
+      background: $dark-gray;
+      border-radius: 1.6rem 1.6rem 0 0;
+      min-height: 3rem;
+      box-sizing: border-box;
+    }
+
+    table {
+      padding: 0 1.6rem;
+      box-sizing: border-box;
+      tbody {
+        td {
+          padding: 2rem;
+        }
+      }
+    }
+  }
 </style>

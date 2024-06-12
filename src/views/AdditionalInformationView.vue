@@ -42,6 +42,30 @@
 </template>
 
 <style lang="scss" scoped>
-  
+    .additional {
+    padding: 2rem 1.6rem;
+    color: $orange;
+    @include flex(column);
+    @include flex-utils(flex-start, center);
+    gap: 3.5rem;
+    flex: 1 0 auto;
+    background: $gray;
+    box-sizing: border-box;
+
+    &__main {
+      padding: 0 1.6rem;
+      width: 100%;
+      max-width: 72.8rem;
+      @include flex(column);
+      text-align: left;
+      box-shadow: 0 1rem 0 0 $dark-gray;
+      border-radius: 1.6rem;
+
+      &__title {
+        background: $dark-gray;
+        border-radius: 1.6rem 1.6rem 0 0;
+      }
+    }
+  }
 </style>
 
