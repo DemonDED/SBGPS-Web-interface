@@ -3,7 +3,12 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue'),
+    beforeEnter: () => {
+      if (!document.cookie) {
+        return({ name: 'Auth' })
+      }
+    } 
   },
   {
     path: '/additional-information',
