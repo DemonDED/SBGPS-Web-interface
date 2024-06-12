@@ -36,6 +36,7 @@ import axios from 'axios';
     })
     .catch(function (error) {
       console.log(error);
+      alert('Нет соединения с сервером')
     })
   }
 
@@ -56,9 +57,9 @@ import axios from 'axios';
             <label for="username">Username: </label>
             <input type="text" id="username" v-model="userName">
           </div>
-          <div>
+          <div class="modal__form__inputs__item">
             <label for="password">Password: </label>
-            <input type="text" id="password" v-model="password">
+            <input type="password" id="password" v-model="password">
           </div>
         </div>
         <button @click="Authorization()">Войти</button>
@@ -75,6 +76,8 @@ import axios from 'axios';
     position: absolute;
     width: 100vw;
     height: 100vh;
+    @include flex(column);
+    @include flex-utils(center, center);
     z-index: 30;
     background: $dark-gray;
   }
@@ -83,8 +86,49 @@ import axios from 'axios';
     width: 100%;
     height: auto;
     max-width: 40rem;
+    @include flex(column);
+      @include flex-utils(flex-start, center);
+      gap: 1rem;
     border-radius: 1.6rem;
     background: $gray;
     color: $orange;
+
+    &__form {
+      @include flex(column);
+      @include flex-utils(flex-start, center);
+      gap: 1rem;
+
+      &__inputs {
+        @include flex(column);
+        @include flex-utils(flex-start, center);
+        gap: 1rem;
+
+        &__item {
+          @include flex();
+          @include flex-utils(flex-start, center);
+          gap: 1rem;
+        }
+      }
+    }
+  }
+
+  button {
+    cursor: pointer;
+    padding: 1.6rem 2rem;
+    text-decoration: none;
+    color: $orange;
+    background-color: $off-gray;
+    border-radius: 1.6rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 23rem;
+    border: none;
+  }
+  input {
+    background-color: $off-gray;
+          border: 1px solid #676767;
+          border-radius: 1.6rem;
+          padding: 1rem;
+          color: $orange;
   }
 </style>
